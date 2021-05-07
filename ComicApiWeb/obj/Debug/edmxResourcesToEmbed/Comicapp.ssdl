@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComicAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="chapter_id" />
+    </Key>
+    <Property Name="chapter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_time" Type="datetime" />
+    <Property Name="_view" Type="int" />
+    <Property Name="comic_id" Type="int" />
+    <Property Name="folderID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Comic">
+    <Key>
+      <PropertyRef Name="comic_id" />
+    </Key>
+    <Property Name="comic_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="summary" Type="nvarchar" MaxLength="500" />
+    <Property Name="image" Type="ntext" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="trans" Type="nvarchar" MaxLength="50" />
+    <Property Name="genre_id" Type="int" />
+    <Property Name="folderID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="genre_id" />
+    </Key>
+    <Property Name="genre_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" />
+    <Property Name="parentFolderID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ComicApp.dbo.Image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="image_id" />
+    </Key>
+    <Property Name="image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="link" Type="nvarchar" MaxLength="100" />
+    <Property Name="chapter_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Userr">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Chapter_Comic">
+    <End Role="Comic" Type="Self.Comic" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comic">
+        <PropertyRef Name="comic_id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="comic_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comic_Genre">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comic" Type="Self.Comic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="genre_id" />
+      </Principal>
+      <Dependent Role="Comic">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Image_Chapter">
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="chapter_id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="chapter_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ComicAppModelStoreContainer">
+    <EntitySet Name="Chapter" EntityType="Self.Chapter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comic" EntityType="Self.Comic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Userr" EntityType="Self.Userr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Image].[image_id] AS [image_id], 
+    [Image].[link] AS [link], 
+    [Image].[chapter_id] AS [chapter_id]
+    FROM [dbo].[Image] AS [Image]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Chapter_Comic" Association="Self.FK_Chapter_Comic">
+      <End Role="Comic" EntitySet="Comic" />
+      <End Role="Chapter" EntitySet="Chapter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comic_Genre" Association="Self.FK_Comic_Genre">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Comic" EntitySet="Comic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Image_Chapter" Association="Self.FK_Image_Chapter">
+      <End Role="Chapter" EntitySet="Chapter" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ComicAppModelStoreContainer" CdmEntityContainer="ComicAppEntities">
+    <EntitySetMapping Name="Chapters">
+      <EntityTypeMapping TypeName="ComicAppModel.Chapter">
+        <MappingFragment StoreEntitySet="Chapter">
+          <ScalarProperty Name="chapter_id" ColumnName="chapter_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="C_view" ColumnName="_view" />
+          <ScalarProperty Name="comic_id" ColumnName="comic_id" />
+          <ScalarProperty Name="folderID" ColumnName="folderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comics">
+      <EntityTypeMapping TypeName="ComicAppModel.Comic">
+        <MappingFragment StoreEntitySet="Comic">
+          <ScalarProperty Name="comic_id" ColumnName="comic_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="summary" ColumnName="summary" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="trans" ColumnName="trans" />
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="folderID" ColumnName="folderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="ComicAppModel.Genre">
+        <MappingFragment StoreEntitySet="Genre">
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="parentFolderID" ColumnName="parentFolderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Userrs">
+      <EntityTypeMapping TypeName="ComicAppModel.Userr">
+        <MappingFragment StoreEntitySet="Userr">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="ComicAppModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="image_id" ColumnName="image_id" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="chapter_id" ColumnName="chapter_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

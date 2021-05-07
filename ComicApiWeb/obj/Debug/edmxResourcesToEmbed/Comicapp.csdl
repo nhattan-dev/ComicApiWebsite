@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComicAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="chapter_id" />
+    </Key>
+    <Property Name="chapter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="update_time" Type="DateTime" Precision="3" />
+    <Property Name="C_view" Type="Int32" />
+    <Property Name="comic_id" Type="Int32" />
+    <Property Name="folderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comic" Relationship="Self.FK_Chapter_Comic" FromRole="Chapter" ToRole="Comic" />
+    <NavigationProperty Name="Images" Relationship="Self.FK_Image_Chapter" FromRole="Chapter" ToRole="Image" />
+  </EntityType>
+  <EntityType Name="Comic">
+    <Key>
+      <PropertyRef Name="comic_id" />
+    </Key>
+    <Property Name="comic_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="genre_id" Type="Int32" />
+    <Property Name="folderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Chapters" Relationship="Self.FK_Chapter_Comic" FromRole="Comic" ToRole="Chapter" />
+    <NavigationProperty Name="Genre" Relationship="Self.FK_Comic_Genre" FromRole="Comic" ToRole="Genre" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="genre_id" />
+    </Key>
+    <Property Name="genre_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="parentFolderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comics" Relationship="Self.FK_Comic_Genre" FromRole="Genre" ToRole="Comic" />
+  </EntityType>
+  <EntityType Name="Userr">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="image_id" />
+    </Key>
+    <Property Name="image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="link" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="chapter_id" Type="Int32" />
+    <NavigationProperty Name="Chapter" Relationship="Self.FK_Image_Chapter" FromRole="Image" ToRole="Chapter" />
+  </EntityType>
+  <Association Name="FK_Chapter_Comic">
+    <End Role="Comic" Type="Self.Comic" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comic">
+        <PropertyRef Name="comic_id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="comic_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Image_Chapter">
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="chapter_id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="chapter_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comic_Genre">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comic" Type="Self.Comic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="genre_id" />
+      </Principal>
+      <Dependent Role="Comic">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ComicAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Chapters" EntityType="Self.Chapter" />
+    <EntitySet Name="Comics" EntityType="Self.Comic" />
+    <EntitySet Name="Genres" EntityType="Self.Genre" />
+    <EntitySet Name="Userrs" EntityType="Self.Userr" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <AssociationSet Name="FK_Chapter_Comic" Association="Self.FK_Chapter_Comic">
+      <End Role="Comic" EntitySet="Comics" />
+      <End Role="Chapter" EntitySet="Chapters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Image_Chapter" Association="Self.FK_Image_Chapter">
+      <End Role="Chapter" EntitySet="Chapters" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comic_Genre" Association="Self.FK_Comic_Genre">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="Comic" EntitySet="Comics" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
