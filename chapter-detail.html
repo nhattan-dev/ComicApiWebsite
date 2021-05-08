@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script src="js/Service.js"></script>
+</head>
+
+<body class="background-black">
+
+    <head>
+
+        <div class="d-flex justify-content-center card-header" style="padding: 3px 0px !important;">
+
+            <a href="/home.html" class="padding-10-r" style="color: blueviolet;"><i class="fa fa-home"></i></a>
+
+            <a class="padding-10-r" style="color: blueviolet;"><i class="fa fa-list"></i></a>
+
+            <a href="" class="padding-10-r" style="color: red;"><i class="fa fa-undo error"></i></a>
+
+            <a class="padding-10-l padding-10-r" onclick="backChapter()" role="button"
+                style="color: white; background-color:springgreen ;"><i class="fa fa-backward"></i></a>
+
+            <div style="width: 30%;" class="padding-10-l"><select class="w-100 h-100" name="cars" id="chapters"
+                    onchange="changeChapter()">
+                    <!-- <option value="1">Chap 1</option> -->
+                </select></div>
+
+            <a class="padding-10-l padding-10-r" onclick="nextChapter()" role="button"
+                style="color: white; background-color:springgreen ; margin-left: 10px;"><i
+                    class="fa fa-forward"></i></a>
+        </div>
+    </head>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="w-65" id="content">
+                <!-- <img src="https://drive.google.com/uc?id=19_pcKoacWGP7vzNw09FqItX7Uys9tzIG" frameborder="0"
+                    class="image-item"></img> -->
+            </div>
+            <div class="row w-65">
+                <div class="comment" id="comment" style="margin-top: 40px;background: #e6e6fa;">
+                    <div style="padding: 15px;" class="row">
+                        <textarea placeholder="Your comment" class="w-100" name="" id="cmt_content" cols="30"
+                            rows="4"></textarea>
+                    </div>
+                    <div style="margin-top: 15px;padding: 15px;" class="row justify-content-between">
+                        <div class="col-lg-8 padding-0">
+                            <input type="text" placeholder="Your name" id="commentator" class="w-100 h-100">
+                        </div>
+                        <div class="col-lg-2 padding-0">
+                            <button onclick="postComment()" class="btn btn-info w-100 h-100 padding-0"
+                                id="btnpostComment" style="background: #071d49;color: white;">Send</button>
+                        </div>
+                    </div>
+                    <div class="readerList" id="comments">
+                        <!-- <div class="reader" style="margin-top: 15px;padding: 15px; ">
+                            <div class="row">
+                                <div class="col-lg-auto">
+                                    <img src="./imagess/icons/icon1.jpg" alt="" style=" width:50px; height:50px;">
+                                </div>
+                                <div class="col-lg-10" style="background-color: aliceblue;">
+                                    <div class="d-flex">
+                                        <div class="" style="color: #005072;white-space: nowrap;margin-right: 5px;">
+                                            <span><i class="fas fa-user"></i></span> <span>Dog Japan</span>
+                                        </div>
+                                        <div class=""><span>7 hours ago</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <p>I really like this chap, hehe</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="reader" style="margin-top: 15px;padding: 15px; ">
+                            <div class="row">
+                                <div class="col-lg-auto">
+                                    <img src="./imagess/icons/icon1.jpg" alt="" style=" width:50px; height:50px;">
+
+                                </div>
+                                <div class="col-lg-10" style="background-color: aliceblue;">
+                                    <div class="d-flex">
+                                        <div class="" style="color: #005072;white-space: nowrap;margin-right: 5px;">
+                                            <span><i class="fas fa-user"></i></span> <span>Dog Japan</span>
+                                        </div>
+                                        <div class=""><span>7 hours ago</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <p>I really like this chap, hehe</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+    <br>
+    <script src="https://kit.fontawesome.com/a40ffc4b73.js" crossorigin="anonymous"></script>
+    <script>
+        function backChapter() {
+            if (document.getElementById("chapters").selectedIndex >= 1 && document.getElementById("chapters").selectedIndex != -1) {
+                document.getElementById("chapters").selectedIndex = (document.getElementById("chapters").selectedIndex - 1);
+                changeChapter();
+            }
+            // $('#chapters').val(chapter_id).change();
+        }
+        function nextChapter() {
+            var count = document.getElementById("chapters").options.length;
+            if (document.getElementById("chapters").selectedIndex < count - 1 && document.getElementById("chapters").selectedIndex != -1) {
+                document.getElementById("chapters").selectedIndex = (document.getElementById("chapters").selectedIndex + 1);
+                changeChapter();
+            }
+            // $('#chapters').val(chapter_id).change();
+        }
+        function changeChapter() {
+            //remove all
+            const myNode = document.getElementById("content");
+            myNode.textContent = "";
+
+            //get chapter_id
+            var chapter_id = document.getElementById('chapters').value;
+
+            //call ajax
+            $.get(baseApiUrl + 'chapterapi?chapter_id=' + chapter_id, function (data) {
+                data.link.forEach(function (item) {
+                    $('#content').append(`<img src="https://drive.google.com/uc?id=` + item + `" frameborder="0" class="image-item"></img>`);
+                })
+            })
+        }
+        $(function () {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            var chapter_id = urlParams.get('chapter_id');
+            $.get(baseApiUrl + 'chapterapi?chapter_id=' + chapter_id, function (data) {
+                data.link.forEach(function (item) {
+                    $('#content').append(`<img src="https://drive.google.com/uc?id=` + item + `" frameborder="0" class="image-item"></img>`);
+                })
+
+                $.get(baseApiUrl + 'comicapi?comic_id=' + data.comic_id, function (chapters) {
+                    chapters.chapters.forEach(function (item) {
+                        $('#chapters').append(`<option value="` + item.chapter_id + `">Chap ` + item.name + `</option>`);
+                    });
+                    $('#chapters').val(chapter_id).change();
+                })
+
+                $.get(baseApiUrl + 'commentapi?comic_id=' + data.comic_id, function (comments) {
+                    comments.forEach(function (item) {
+                        $('#comments').append(`<div class="reader" style="margin-top: 15px;padding: 15px; "> <div class="row"> <div class="col-lg-auto"> <img src="./imagess/icons/icon1.jpg" alt="" style=" width:50px; height:50px;"> </div> <div class="col-lg-10" style="background-color: aliceblue;"> <div class="d-flex"> <div class="" style="color: #005072;white-space: nowrap;margin-right: 5px;"> <span><i class="fas fa-user"></i></span> <span>` + item.commentator + `</span> </div> <div class=""><span>7 hours ago</span></div> </div> <div class="row"> <p>` + item.cmt_content + `</p> </div> </div> </div> </div>`);
+                    });
+                })
+            })
+        })
+        document.onkeydown = function (e) {
+            switch (e.which) {
+                case 37: // left
+                    backChapter();
+                    break;
+                case 39: // right
+                    nextChapter();
+                    break;
+
+                default: return; // exit this handler for other keys
+            }
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        };
+
+        function postComment() {
+            var chapter_id = document.getElementById('chapters').value;
+            $('#btnpostComment').attr("disabled", true);
+
+            var data = {
+                "cmt_id": 1,
+                "commentator": document.getElementById('commentator').value,
+                "cmt_content": document.getElementById('cmt_content').value,
+                "cmt_time": "2021-05-07T10:47:48.8071491+07:00",
+                "chapter_id": chapter_id
+            }
+
+            console.log(data);
+
+            $.post(baseApiUrl + "commentapi", data).done(function (response) {
+                if (response == 0) {
+                    $('#comments').prepend(`<div class="reader" style="margin-top: 15px;padding: 15px; "> <div class="row"> <div class="col-lg-auto"> <img src="./imagess/icons/icon1.jpg" alt="" style=" width:50px; height:50px;"> </div> <div class="col-lg-10" style="background-color: aliceblue;"> <div class="d-flex"> <div class="" style="color: #005072;white-space: nowrap;margin-right: 5px;"> <span><i class="fas fa-user"></i></span> <span>` + data.commentator + `</span> </div> <div class=""><span>now</span></div> </div> <div class="row"> <p>` + data.cmt_content + `</p> </div> </div> </div> </div>`);
+                } else {
+                    alert('Thất bại!');
+                }
+            }).fail(function () {
+                alert("Thất bại!");
+            }).always(function () {
+                $('#btnpostComment').attr("disabled", false);
+            })
+        }
+    </script>
+</body>
+
+</html>

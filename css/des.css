@@ -1,0 +1,15 @@
+.flex{
+    display: flex;
+}
+.space_around{
+    justify-content: space-around;
+}
+.space_between{
+    justify-content: space-between;
+}
+.hover_bg_black:hover{
+    background: black;
+}
+.color_black{
+    color: black;
+}

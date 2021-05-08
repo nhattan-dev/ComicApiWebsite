@@ -1,0 +1,100 @@
+
+
+
+:root{
+    --triangleC : #3d3b3b;
+
+}
+ul{
+    list-style: none;
+}
+button{
+    border: none;
+}
+.triangle{
+    content: "";
+    position: relative;
+    width: 0;
+    height: 0;
+    bottom: 5px;
+    left: 30px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #002449;
+}
+.triangle-genre{
+    content: "";
+    position: relative;
+    width: 0;
+    height: 0;
+    bottom: 15px;
+    left: 15px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #002449;
+}
+.triangleC{
+    content: "";
+    position: relative;
+    width: 0;
+    height: 0;
+    bottom: 5px;
+    left: 10px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid var(--triangleC);
+}
+body{
+    position: relative;
+}
+.col-3{
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d0cccc;
+
+}
+.bg_grey{
+    background: #dfdddd;
+}
+.color_grey{
+    color :#635858;
+}
+.bg_main_color{
+    background: #002449;
+}
+.hover_b:hover{
+    color: white;
+    background: #002449;
+}
+.hover_bg_black:hover{
+    color: white !important;
+    background: black !important;
+}
+.hover_bg_blue:hover{
+    background: palevioletred !important;
+}
+.hover_li:hover{
+    color: #dbc5fe;
+}
+.hover_underline:hover{
+    text-decoration-line: underline;
+}
+.hover_color_black:hover{
+    color: black !important;
+}
+.hover_color_pink:hover{
+    color: #ffd1df !important;
+}
+.left_QC{
+    position: absolute;
+    top: 600px;
+    left: 0;
+    width: 170px;
+    height: 200px;
+}
+body{
+    font-family: serif,Georgia,system-ui;
+}
+a{
+    text-decoration-line: none !important;
+}

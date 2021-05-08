@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/my_function.js"></script>
+    <title>Document</title>
+    <script src="js/Service.js"></script>
+</head>
+
+<body>
+    <header class="" style="background-color: black; padding-top: 10px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <a><img src="image/logo.png" class="logo-icon" style="width: 40%;"></a>
+                </div>
+                <div class="col-lg-4">
+                    <div class="d-flex">
+                        <a class="a-padding text-decoration-none"><span class="padding-10 span-color-white"
+                                style="color: blanchedalmond;">Tủ Truyện</span></a>
+                        <a class="a-padding text-decoration-none"><span class="padding-10 span-color-white"
+                                style="color: blanchedalmond;">Lịch Sử</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <input type="text" role="button" placeholder="Search..." style="width: 100%;"><a href=""><i
+                            class="fas fa-search" style="margin-left: -25px; color: black;"></i></a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex">
+                        <a class="a-padding text-decoration-none btn" role="button"><span onclick="checkCookie()"
+                                class="span-color-white"><i class="fas fa-sign-in-alt"></i> Đăng
+                                nhập</span></a>
+                        <a class="a-padding text-decoration-none btn" role="button"><span class="span-color-white"><i
+                                    class="fas fa-user"></i>Đăng Ký</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <br>
+        <div class="container">
+            <div class="row detail-container">
+                <div class="col-lg-8">
+                    <div class="card-header">
+                        <a class="padding-10-r text-decoration-none" href="/home.html"><span class="font-size-130">Trang
+                                Chủ</span></a><span>/</span>
+                        <a class="padding-10-r text-decoration-none" href="/home.html"><span class="font-size-130">Danh
+                                Sách
+                                Truyện</span></a><span>/</span>
+                        <a class="padding-10-r text-decoration-none"><span class="font-size-130">Toàn Chức Pháp
+                                Sư</span></a>
+                    </div>
+                    <br>
+                    <div class="div detail-nav">
+                        <div class="row margin-0">
+                            <div class="col-lg-auto">
+                                <div class="detail-item">
+                                    <img class="detail-image" src="" id="comic-image"
+                                        style="width: 200px !important; height: 262px !important;">
+                                    <div class="d-flex align-items-end">
+                                        <i class="fas fa-star-half-alt fa-2x"></i>
+                                        <span>Đánh giá</span>
+                                    </div>
+                                    <div class="d-flex padding-10">
+                                        <i class="far fa-star fa-2x text-warning"></i>
+                                        <i class="far fa-star fa-2x text-warning"></i>
+                                        <i class="far fa-star fa-2x text-warning"></i>
+                                        <i class="far fa-star fa-2x text-warning"></i>
+                                        <i class="far fa-star fa-2x text-warning"></i>
+                                    </div>
+                                    <span>Has a total of 4 reviews</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <h4 class="padding-10-t" style="margin-top: 20px;" id="comic-name">TOÀN CHỨC PHÁP
+                                    SƯ-------</h4>
+                                <div class="d-flex padding-10">
+                                    <i class="fa fa-clone fa-md text-primary padding-10-r-t "></i>
+                                    <b>Tên gọi khác: Đang cập nhật</b>
+                                </div>
+                                <div class="d-flex padding-10">
+                                    <i class="fa fa-users fa-md text-danger padding-10-r-t "></i>
+                                    <b>Tác giả: </b><b id="comic-author"></b>
+                                </div>
+                                <div class="d-flex padding-10">
+                                    <i class="fa fa-tags fa-md text-primary padding-10-r-t "></i>
+                                    <b>Thể loại: Đang cập nhật</b>
+                                </div>
+                                <div class="d-flex padding-10">
+                                    <i class="fa fa-spinner fa-pulse fa-md fa-fw text-info padding-10-r-t "></i>
+                                    <b>Tình Trạng: Đang cập nhật</b>
+                                </div>
+                                <div class="d-flex padding-10">
+                                    <i class="fa fa-user-plus fa-md text-success padding-10-r-t "></i>
+                                    <b>Nhóm dịch: Đang cập nhật</b>
+                                </div>
+                                <div class="d-flex padding-10">
+                                    <i class="fa fa-eye fa-md text-warning padding-10-1 "></i>
+                                    <b>Lượt xem: </b><b id="comic-view"></b>
+                                </div>
+                                <br>
+                                <div>
+                                    <li class="fa fa-bookmark fa-2x"></li>
+                                    <span>68 người đang theo dõi</span>
+                                </div>
+                                <br>
+                                <div class="read-action">
+                                    <a class="btn btn-danger btn-md">
+                                        <li class="fa fa-paper-plane padding-10-r"></li>Đọc chương cuối
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="padding-10">
+                            <h5 class="font-barlow-cond font-size-150">SƠ LƯỢC</h5>
+                            <div class="sumary-content">
+                                <p id="comic-summary">Tỉnh lại sau giấc ngủ, thế giới đại biến. Quen thuộc cao trung
+                                    truyền thụ chính là
+                                    phép thuật, nói cho mọi người muốn trở thành một tên xuất sắc Ma Pháp Sư. Ở lại đô
+                                    thị ở ngoài du đãng tập kích nhân loại ma vật yêu thú, mắt nhìn chằm chằm. Tôn trọng
+                                    khoa học thế giới đã biến thành tôn trọng phép thuật, một mực có như nhau lấy học
+                                    tra đối xử giáo viên của chính mình, như nhau ánh mắt dị dạng bạn học, như nhau xã
+                                    hội tầng dưới chót giãy dụa ba ba, như nhau thuần mỹ nhưng không thể bước đi không
+                                    phải huyết thống muội muội... Bất quá, Mạc Phàm phát hiện tuyệt đại đa số người đều
+                                    chỉ có thể chủ tu nhất hệ phép thuật, chính mình nhưng là toàn hệ toàn năng pháp sư!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-titke font-barlow-cond font-size-150">CÁC CHƯƠNG</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled list-chapter" id="comic-list">
+                                <!-- <li class="chapter-list-item">
+                                    <a href="" class="text-decoration-none">
+                                        <div class="row">
+                                            <div class="col-lg-10">Chương 666</div>
+                                            <div class="col-lg-2">
+                                                <div class="text-truncate">1 giờ trước</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="chapter-list-item">
+                                    <a href="" class="text-decoration-none">
+                                        <div class="row">
+                                            <div class="col-lg-10">Chương 666</div>
+                                            <div class="col-lg-2">
+                                                <div class="text-truncate">1 giờ trước</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-lg-4">
+                    <div class="w-75 detail-nav">
+                        <div class="topAll sidebar-topAll">
+                            <ul class=" nav nav-tabs tabs-3 red d-flex justify-content-around" role="tablist">
+                                <li class="tab-onclick nav-item" role="tab" data-tog="tab"><a
+                                        class="font-barlow-cond text-decoration-none font-size-130"
+                                        href="#yesterday">TOP NGÀY</a></li>
+                                <li class="tab-onclick nav-item" role="tab" data-tog="tab"><a
+                                        class="font-barlow-cond text-decoration-none font-size-130"
+                                        href="#lastmonth">TOP THÁNG</a></li>
+                                <li class="tab-onclick nav-item" role="tab" data-tog="tab"><a
+                                        class="font-barlow-cond text-decoration-none font-size-130" href="#all">TOP
+                                        TỔNG</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-item" id="yesterday">
+                                <div class="sidebar-content" id="sub-content">
+                                    <!-- <div class="row top-item">
+                                        <div class="col-lg-4">
+                                            <a href=""><img style="width: 100%;" src="image/pic2.jpg"></a>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <a href="" class="text-decoration-none"><b>Bách Luyện Thành Thần</b></a>
+                                            <br><a href="" class="text-decoration-none color-chapter">Chap 717</a>
+                                            <br><span>1 ngày trước</span>
+                                            <br><a href="" class="text-decoration-none color-chapter">Chap 717</a>
+                                            <br><span>1 ngày trước</span>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="tab-item" id="lastmonth">
+                            </div>
+                            <div class="tab-item" id="all">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a40ffc4b73.js" crossorigin="anonymous"></script>
+    <script>
+        activeVoteTab($('.tab-onclick:first-child'));
+        $('.tab-onclick').click(function () {
+            activeVoteTab(this);
+            //return false;
+        });
+        function activeVoteTab(obj) {
+            // Xóa class active tất cả các tab
+            $('.tab-onclick').removeClass('active');
+
+            // Thêm class active vòa tab đang click
+            $(obj).addClass('active');
+
+            // Lấy href của tab để show content tương ứng
+            var id = $(obj).find('a').attr('href');
+            // Ẩn hết nội dung các tab đang hiển thị
+            $('.tab-item').hide();
+            // Hiển thị nội dung của tab hiện tại
+            $(id).show();
+        }
+        $(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            var comic_id = urlParams.get('comic_id');
+            $.get(baseApiUrl  + 'comicapi?comic_id=' + comic_id, function (data) {
+                //$('#content').append(`<div class="col-lg-3 chapter-item"><div style="background-image: url('https://drive.google.com/uc?id=` + item.image + `');" class="slideshow-image"><div class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 100%; padding-left: 18px;"><div class="mb-auto p-2 bd-highlight"><span class="badge badge-primary span-color-black">7 giờ trước</span></div><div class="p-2 bd-highlight"><a class="text-decoration-none font-size-130" href=""><span class="color-chapter span-color-white">Chap ` + item.chapters[0].name + `</span></a></div></div></div><div class="d-flex justify-content-center"><a class="text-decoration-none" href=""><b class="font-size-115">` + item.name + `</b></a></div></div>`);
+                $('#comic-name').text(data.name);
+                $('#comic-author').text(data.author);
+                $('#comic-view').text("Đang cập nhật");
+                $('#comic-summary').text(data.summary);
+                $('#comic-image').attr('src', 'https://drive.google.com/uc?id=' + data.image);
+                data.chapters.forEach(function (item) {
+                    $('#comic-list').append(`<li class="chapter-list-item"><a href="` + baseUrl + `chapter-detail.html?chapter_id=` + item.chapter_id + `" class="text-decoration-none"><div class="row"><div class="col-lg-10">Chương ` + item.name + `</div><div class="col-lg-2"><div class="text-truncate">1 giờ trước</div></div></div></a></li>`);
+                });
+            })
+
+            $.get(baseApiUrl + 'homeapi?key=1', function (data) {
+                var count = 0;
+                data.forEach(function (item) {
+                    count++;
+                    if (count <= 5)
+                        // $('#sub-content').append('<div class="sub-item" style="background-color:beige; padding-left:15px; padding-top:15px"><div class="row"><div class="col-lg-4"><a href=""><img style="width:100%" src="http://www.truyensieuhay.somee.com///image//pic1.jpg"/></a></div><div class="col-lg-8"><div><h5>' + item.name + '</h5></div><div class="row"><div class="col-lg-6"><span><a class="btn btn-outline-secondary btn-sm btn-block" href="http://www.truyensieuhay.somee.com//chapter/index?chapter_id=' + item.chapters[0].chapter_id + '">Chap ' + item.chapters[0].name + '</a></span></div><div class="col-lg-6 d-flex align-items-center"><span>2 giờ trước</span></div></div><br/><div class="row"><div class="col-lg-6"><span><a class="btn btn-outline-secondary btn-sm btn-block" href="http://www.truyensieuhay.somee.com//chapter/index?chapter_id=' + item.chapters[1].chapter_id + '">Chap ' + item.chapters[1].name + '</a></span></div><div class="col-lg-6 d-flex align-items-center"><span>2 giờ trước</span></div></div></div></div><hr/></div>');
+                        try {
+                            $('#sub-content').append('<div class="row top-item"> <div class="col-lg-4"> <a href="' + baseUrl +'detail.html?comic_id=' + item.comic_id + '"><img style="width: 100%;" src="https://drive.google.com/uc?id=' + item.image + '"></a> </div> <div class="col-lg-8"> <a href="' + baseUrl +'detail.html?comic_id=' + item.comic_id + '" class="text-decoration-none"><b>' + item.name + '</b></a> <br><a href="' + baseUrl +'chapter-detail.html?chapter_id=' + item.chapters[0].chapter_id + '" class="text-decoration-none color-chapter">Chap ' + item.chapters[0].name + '</a> <br><span>1 ngày trước</span> <br><a href="' + baseUrl + 'chapter-detail.html?chapter_id=' + item.chapters[1].chapter_id + '" class="text-decoration-none color-chapter">Chap ' + item.chapters[1].name + '</a> <br><span>1 ngày trước</span> </div> </div>');
+                        } catch { }
+                })
+            })
+        })
+    </script>
+</body>
+<script src="/js/cookies.js"></script>
+
+</html>

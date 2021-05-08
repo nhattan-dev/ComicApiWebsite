@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Material Dashboard by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="./assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css">
+  <script rel="stylesheet" src="js/my_function.js"></script>
+  <script rel="stylesheet" src="js/Service.js"></script>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Creative NT
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" href="./dashboard.html">
+              <i class="material-icons">dashboard</i>
+              <p>Chapter</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./genre-create.html">
+              <i class="material-icons">person</i>
+              <p>Genre</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link">
+              <i class="material-icons">content_paste</i>
+              <p>Comic</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Comic</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;">
+                  <i class="material-icons">dashboard</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">5</span>
+                  <p class="d-lg-none d-md-block">
+                    Some Actions
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                  <a class="dropdown-item" href="#">Another Notification</a>
+                  <a class="dropdown-item" href="#">Another One</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <div class="container-fluid" style="margin-top: 40px;">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card ">
+              <div class="card-header">
+                <nav>
+                  <form class="tabs">
+                    <div class="set-click item-click btn btn-sm btn-secondary " type="button" data-bs-toggle="tab"
+                      role="tab"><a href="#comics-tab">Comics</a></div>
+                    <div class="item-click btn btn-sm btn-secondary" type="button" data-bs-toggle="tab" role="tab"><a
+                        href="#create-tab" onclick="createClick()">Create </a></div>
+                    <div class="btn btn-sm btn-secondary" type="button" data-bs-toggle="tab" role="tab"><a>Edit</a>
+                    </div>
+                  </form>
+                </nav>
+              </div>
+              <div class="card-body">
+                <div class="tab-content">
+                  <div id="comics-tab" class="tab-item">
+                  </div>
+                  <div id="create-tab" class="tab-item">
+                    <div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header card-header-primary">
+                              <h4 class="card-title">Create Comic</h4>
+                              <p class="card-category">Complete comic information</p>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Comic Name</label>
+                                    <input type="text" class="form-control" id="comic-name">
+                                  </div>
+                                </div>
+                                <div class="col-md-5">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Author</label>
+                                    <input type="text" class="form-control" id="comic-author" value="Đang cập nhật">
+                                  </div>
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Trans</label>
+                                    <input type="text" class="form-control" id="comic-trans" value="Đang cập nhật">
+                                  </div>
+                                </div>
+                                <div class="col-md-6 row">
+                                  <div class="col-md-auto"><label class="bmd-label-floating"
+                                      style="padding-top: 12px;">Genre</label></div>
+                                  <div class="col-md-10">
+                                    <select class="form-control" id="comic-genre">
+                                      <!-- <option value=""></option> -->
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <label class="bmd-label-floating" style="width: 100px;">Image</label>
+                                  <input class="" type="file" id="img" name="img" accept="image/*"
+                                    onchange="loadImage(this, 'comic-image')">
+                                </div>
+                              </div>
+                              <div class="row">
+                                <img src="" alt="" id="comic-image">
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating"> Summary</label>
+                                      <textarea class="form-control" rows="5"
+                                        id="comic-summary">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button type="submit" class="btn btn-primary pull-right" id="createButton"
+                                onclick="createComic()">Create Comic</button>
+                              <div class="clearfix"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div id="edit-comic" class="tab-item">
+                    <div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header card-header-primary">
+                              <h4 class="card-title">Edit Comic</h4>
+                              <p class="card-category">Change comic information</p>
+                            </div>
+                            <input readonly hidden id="e-cid">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Comic Name</label>
+                                    <input type="text" class="form-control" id="e-cname">
+                                  </div>
+                                </div>
+                                <div class="col-md-5">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Author</label>
+                                    <input type="text" class="form-control" id="e-cauthor">
+                                  </div>
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Trans</label>
+                                    <input type="text" class="form-control" id="e-ctrans">
+                                  </div>
+                                </div>
+                                <div class="col-md-6 row">
+                                  <div class="col-md-auto"><label class="bmd-label-floating"
+                                      style="padding-top: 12px;">Genre</label></div>
+                                  <div class="col-md-10">
+                                    <select class="form-control" id="e-comic-genre">
+                                      <!-- <option value=""></option> -->
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <label class="bmd-label-floating" style="width: 100px;">Image</label>
+                                  <input class="" type="file" id="img" name="img" accept="image/*"
+                                    onchange="loadImage(this, 'e-comic-image')">
+                                </div>
+                              </div>
+                              <div class="row">
+                                <img src="" alt="" id="e-comic-image">
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating"> Summary</label>
+                                      <textarea class="form-control" rows="5" id="e-csummary"></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button id="updateButton" type="submit" class="btn btn-primary pull-right"
+                                onclick="updateComic()">Update
+                                Comic</button>
+                              <div class="clearfix"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-md-4">
+            <br>
+            <br>
+            <div class="card card-profile">
+              <div class="card-avatar">
+                <a href="javascript:;">
+                  <img class="img" src="./assets/img/faces/marc.jpg" />
+                </a>
+              </div>
+              <div class="card-body">
+                <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                <h4 class="card-title">Ngoc Nhat</h4>
+                <p class="card-description">
+                  Don't be scared of the truth because we need to restart the human foundation in truth And I love
+                  you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                </p>
+                <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com">
+                    Creative NT
+                  </a>
+                </li>
+                <li>
+                  <a href="https://creative-tim.com/presentation">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="http://blog.creative-tim.com">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.creative-tim.com/license">
+                    Licenses
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright float-right">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative NT</a> for a better web.
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <div class="fixed-plugin">
+      <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+          <i class="fa fa-cog fa-2x"> </i>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="header-title"> Sidebar Filters</li>
+          <li class="adjustments-line">
+            <a href="javascript:void(0)" class="switch-trigger active-color">
+              <div class="badge-colors ml-auto mr-auto">
+                <span class="badge filter badge-purple" data-color="purple"></span>
+                <span class="badge filter badge-azure" data-color="azure"></span>
+                <span class="badge filter badge-green" data-color="green"></span>
+                <span class="badge filter badge-warning" data-color="orange"></span>
+                <span class="badge filter badge-danger" data-color="danger"></span>
+                <span class="badge filter badge-rose active" data-color="rose"></span>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+          </li>
+          <li class="header-title">Images</li>
+          <li class="active">
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="./assets/img/sidebar-1.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="./assets/img/sidebar-2.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="./assets/img/sidebar-3.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="./assets/img/sidebar-4.jpg" alt="">
+            </a>
+          </li>
+          <li class="button-container">
+            <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank"
+              class="btn btn-primary btn-block">Free Download</a>
+          </li>
+          <!-- <li class="header-title">Want more components?</li>
+            <li class="button-container">
+                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+                  Get the pro version
+                </a>
+            </li> -->
+          <li class="button-container">
+            <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html"
+              target="_blank" class="btn btn-default btn-block">
+              View Documentation
+            </a>
+          </li>
+          <li class="button-container github-star">
+            <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard"
+              data-icon="octicon-star" data-size="large" data-show-count="true"
+              aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+          </li>
+          <li class="header-title">Thank you for 95 shares!</li>
+          <li class="button-container text-center">
+            <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+            <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot;
+              50</button>
+            <br>
+            <br>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Plugin for the momentJs  -->
+    <script src="./assets/js/plugins/moment.min.js"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="./assets/js/plugins/sweetalert2.js"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="./assets/js/plugins/jquery.validate.min.js"></script>
+    <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+    <script src="./assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="./assets/js/plugins/bootstrap-selectpicker.js"></script>
+    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+    <script src="./assets/js/plugins/jquery.dataTables.min.js"></script>
+    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+    <script src="./assets/js/plugins/bootstrap-tagsinput.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="./assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+    <script src="./assets/js/plugins/fullcalendar.min.js"></script>
+    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+    <script src="./assets/js/plugins/jquery-jvectormap.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="./assets/js/plugins/nouislider.min.js"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="./assets/js/plugins/arrive.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chartist JS -->
+    <script src="./assets/js/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="./assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="./assets/demo/demo.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        // $('.comic-header').click(function () {
+        //   activeTab2(this);
+        //   //return false;
+        // });
+        $('.tabs .item-click').click(function () {
+          activeHeaderTab(this);
+          //return false;
+        });
+        activeHeaderTab($('.set-click'));
+
+        function activeHeaderTab(obj) {
+          // Xóa class active tất cả các tab
+          $('.tabs .item-click').removeClass('active');
+
+          // Thêm class active vòa tab đang click
+          $(obj).addClass('active');
+
+          // Lấy href của tab để show content tương ứng
+          var id = $(obj).find('a').attr('href');
+          // Ẩn hết nội dung các tab đang hiển thị
+          $('.tab-item').hide();
+          // Hiển thị nội dung của tab hiện tại
+
+          $(id).show();
+        }
+        $().ready(function () {
+          $sidebar = $('.sidebar');
+
+          $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+          $full_page = $('.full-page');
+
+          $sidebar_responsive = $('body > .navbar-collapse');
+
+          window_width = $(window).width();
+
+          fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+          if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+            if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+              $('.fixed-plugin .dropdown').addClass('open');
+            }
+
+          }
+
+          $('.fixed-plugin a').click(function (event) {
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+            if ($(this).hasClass('switch-trigger')) {
+              if (event.stopPropagation) {
+                event.stopPropagation();
+              } else if (window.event) {
+                window.event.cancelBubble = true;
+              }
+            }
+          });
+
+          $('.fixed-plugin .active-color span').click(function () {
+            $full_page_background = $('.full-page-background');
+
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+
+            var new_color = $(this).data('color');
+
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-color', new_color);
+            }
+
+            if ($full_page.length != 0) {
+              $full_page.attr('filter-color', new_color);
+            }
+
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.attr('data-color', new_color);
+            }
+          });
+
+          $('.fixed-plugin .background-color .badge').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+
+            var new_color = $(this).data('background-color');
+
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-background-color', new_color);
+            }
+          });
+
+          $('.fixed-plugin .img-holder').click(function () {
+            $full_page_background = $('.full-page-background');
+
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
+
+
+            var new_image = $(this).find("img").attr('src');
+
+            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              $sidebar_img_container.fadeOut('fast', function () {
+                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
+              });
+            }
+
+            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+              $full_page_background.fadeOut('fast', function () {
+                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                $full_page_background.fadeIn('fast');
+              });
+            }
+
+            if ($('.switch-sidebar-image input:checked').length == 0) {
+              var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+            }
+
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+            }
+          });
+
+          $('.switch-sidebar-image input').change(function () {
+            $full_page_background = $('.full-page-background');
+
+            $input = $(this);
+
+            if ($input.is(':checked')) {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image', '#');
+              }
+
+              if ($full_page_background.length != 0) {
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image', '#');
+              }
+
+              background_image = true;
+            } else {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+              }
+
+              if ($full_page_background.length != 0) {
+                $full_page.removeAttr('data-image', '#');
+                $full_page_background.fadeOut('fast');
+              }
+
+              background_image = false;
+            }
+          });
+
+          $('.switch-sidebar-mini input').change(function () {
+            $body = $('body');
+
+            $input = $(this);
+
+            if (md.misc.sidebar_mini_active == true) {
+              $('body').removeClass('sidebar-mini');
+              md.misc.sidebar_mini_active = false;
+
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+            } else {
+
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+              setTimeout(function () {
+                $('body').addClass('sidebar-mini');
+
+                md.misc.sidebar_mini_active = true;
+              }, 300);
+            }
+
+            // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function () {
+              window.dispatchEvent(new Event('resize'));
+            }, 180);
+
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function () {
+              clearInterval(simulateWindowResize);
+            }, 1000);
+
+          });
+        });
+      });
+    </script>
+
+    <script>
+
+      function activeTab2(obj) {
+        // Xóa class active tất cả các tab
+        if ($(obj).closest(".comic-item").find(".chapters-menu").hasClass("d-block")) {
+          $(obj).closest(".comic-item").find(".chapters-menu").removeClass("d-block");
+          $(obj).closest(".comic-item").find(".chapters-menu").addClass("d-none");
+        } else {
+          $(obj).closest(".comic-item").find(".chapters-menu").removeClass("d-none");
+          $(obj).closest(".comic-item").find(".chapters-menu").addClass("d-block");
+        }
+      }
+
+      $(function () {
+        var username = getCookie("comicusername");
+        var password = getCookie("comicpassword");
+        $.get(baseApiUrl + 'userapi?username=' + username + '&password=' + password, function (data) {
+          if (data == 0 || data == 1) {
+            $.get(baseApiUrl + 'comicapi', function (data) {
+              data.forEach(function (item) {
+                $('#comics-tab').append(`<div class="comic-item" onclick=activeTab2(this)><div class="comic-content d-flex justify-content-between"><h5 class="comic-header">` + item.name + `</h5><div class="comic-action d-flex justify-content-end tabs"><div class="item-click btn btn-sm btn-secondary" type="button"><a href="#edit-comic" onclick="editComic(` + item.comic_id + `)">Edit</a></div><div class="btn btn-sm btn-secondary" type="button"><a onclick="deleteComic(` + item.comic_id + `)">Delete</a></div><div class="btn btn-sm btn-secondary" type="button"><a onclick="createChapter(` + item.comic_id + `)">Create</a></div></div></div><div class="chapters-menu d-none"><div><nav class="vertical-menu"><ul class="chapter-list" style="list-style: none;" id="ul` + item.comic_id + `"></ul></nav></div></div></div>`);
+                item.chapters.forEach(function (chapter) {
+                  $('#ul' + item.comic_id).append(`<li id="li` + chapter.chapter_id + `" class="d-flex justify-content-between chapter-item"><div class="name align-items-center"> Chap ` + chapter.name + ` </div><div class="comic-action d-flex justify-content-around"><a  onclick="deleteChapter(` + chapter.chapter_id + `)">Delete</a></div></li>`);
+                })
+              })
+            })
+          } else {
+            window.location.href = baseUrl + "login.html";
+          }
+        });
+      })
+
+      function loadImage(input, name) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#' + name).attr('src', e.target.result).width(200)
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      function updateComic() {
+        $('#updateButton').attr("disabled", true);
+
+        let comicname = $('#e-cname').val();
+        let comicid = $('#e-cid').val();
+        let comicauthor = $('#e-cauthor').val();
+        let comictrans = $('#e-ctrans').val();
+        let comicsummary = $('#e-csummary').val();
+        let comicgenre = document.getElementById('e-comic-genre').value;
+        let comiciamge = document.getElementById('e-comic-image').src;
+
+        // let comicname = document.getElementById("e-gid").value;
+        // let comicid = document.getElementById("e-gid").value;
+        // let comicauthor = document.getElementById("e-gid").value;
+        // let comictrans = document.getElementById("e-gid").value;
+        // let comicsummary = document.getElementById("e-gid").value;
+        // let comicgenre = document.getElementById('e-comic-genre').value;
+        // let comiciamge = document.getElementById('e-comic-image').src;
+
+        if (comicname && comicgenre && comiciamge) {
+        } else {
+          $('#updateButton').attr("disabled", false);
+          alert("Name, Image, Genre không được trống")
+          return;
+        }
+        //PUT to server{
+
+        var username = getCookie('comicusername');
+        var password = getCookie('comicpassword');
+        alert(comiciamge);
+        var comic = {}
+        comic.genre_id = comicgenre;
+        comic.comic_id = comicid;
+        comic.image = comiciamge;
+        comic.author = comicauthor;
+        comic.trans = comictrans;
+        comic.summary = comicsummary;
+        comic.name = comicname;
+        comic.chapters = [];
+        comic.folderID = "";
+        console.log(comic);
+
+        var data = {
+          "comic_id": comicid,
+          // "image": comiciamge,
+          "image": " ",
+          "name": comicname,
+          "summary": comicsummary,
+          "author": comicauthor,
+          "trans": comictrans,
+          "genre_id": comicgenre,
+          "chapters": [
+            {
+              "chapter_id": 1,
+              "name": "sample string 2",
+              "update_time": "2021-05-06T10:31:16.7842785-05:00",
+              "view": 4,
+              "link": [
+                "sample string 1",
+                "sample string 2"
+              ],
+              "comic_id": 5
+            },
+            {
+              "chapter_id": 1,
+              "name": "sample string 2",
+              "update_time": "2021-05-06T10:31:16.7842785-05:00",
+              "view": 4,
+              "link": [
+                "sample string 1",
+                "sample string 2"
+              ],
+              "comic_id": 5
+            }
+          ],
+          "folderID": "sample string 8"
+        }
+
+        $.ajax({
+          url: baseApiUrl + 'comicapi?KEY=' + username + password,
+          type: 'PUT',
+          data: data,
+          dataType: "json",
+          success: function (data) {
+            if (data == 0) {
+              alert('Thành công!');
+              window.location.reload();
+            } else {
+              alert('Thất bại!');
+            }
+          }, error: function (xhr) {
+            console.log(xhr.responseText);
+          }
+        }).fail(function () {
+          alert("Thất bại!");
+        }).always(function () {
+          $('#updateButton').attr("disabled", false);
+        });
+      }
+
+      function createComic() {
+
+        $('#createButton').attr("disabled", true);
+        let comicname = $('#comic-name').val();
+        let comicauthor = $('#comic-author').val();
+        let comictrans = $('#comic-trans').val();
+        let comicsummary = $('#comic-summary').val();
+        let comicgenre = document.getElementById('comic-genre').value;
+        let comiciamge = document.getElementById('comic-image').src;
+        if (comicname && comicgenre && comiciamge != "" && comicsummary && comictrans && comicauthor) {
+        } else {
+          $('#createButton').attr("disabled", false);
+          alert("Name, Image, Genre không được trống")
+          return;
+        }
+        //POST to server{
+        var data = {
+          "genre_id": comicgenre,
+          "name": comicname,
+          "trans": comictrans,
+          "author": comicauthor,
+          "image": comiciamge,
+          "summary": comicsummary
+        }
+        $.post(baseApiUrl + 'comicapi?key=sasa', data).done(function (response) {
+          $('#createButton').attr("disabled", false);
+          if (response == 0) {
+            alert('Thành công!');
+            window.location.reload();
+          } else {
+            alert('Thất bại!');
+          }
+        }).fail(function () {
+          $('#createButton').attr("disabled", false);
+          alert('Thất bại!');
+        });
+      }
+
+      function createClick() {
+        $.get(baseApiUrl + 'genreapi', function (genres) {
+          genres.forEach(function (item) {
+            $('#comic-genre').append(`<option value="` + item.genre_id + `">` + item.name + `</option>`);
+          })
+        })
+      }
+
+      function editComic(comic_id) {
+        var genre_id = '';
+        $('#comics-tab').hide();
+        $('#edit-comic').show();
+        $.get(baseApiUrl + "comicapi?comic_id=" + comic_id).done(function (data) {
+          document.getElementById('e-cid').value = data.comic_id;
+          document.getElementById('e-cname').value = data.name;
+          document.getElementById('e-cauthor').value = data.author;
+          document.getElementById('e-ctrans').value = data.trans;
+          document.getElementById('e-csummary').value = data.summary;
+          document.getElementById('e-comic-image').src = "https://drive.google.com/uc?id=" + data.image;
+          $.get(baseApiUrl + 'genreapi', function (genres) {
+            genres.forEach(function (item) {
+              // $('#content').append('<div class="col-lg-3" style="padding: 15px 15px"><div class="page-item"><div><a href=""><img style="width:100%" src="http://www.truyensieuhay.somee.com//image//pic1.jpg"/></a></div><div><h6 class="font-weight-bold">' + item.name + '</h6><div class="chapter-group"><div class="chapter-group-item"><span class=""><a href="http://www.truyensieuhay.somee.com/chapter/index?chapter_id=' + item.chapters[0].chapter_id + '" class="btn btn-outline-secondary btn-block btn-sm">Chap ' + item.chapters[0].name + '</a></span><br/><span class="">3 giờ trước.</span></div><div class="chapter-group-item"><a href="http://www.truyensieuhay.somee.com/chapter/index?chapter_id=' + item.chapters[1].chapter_id + '" class="btn btn-outline-secondary btn-block btn-sm">Chap ' + item.chapters[1].name + '</a><br/><span class="">3 giờ trước.</span></div></div></div></div></div>');
+              $('#e-comic-genre').append(`<option value="` + item.genre_id + `">` + item.name + `</option>`);
+              $('#e-comic-genre').val(data.genre_id);
+            })
+          })
+        })
+      }
+    </script>
+</body>
+
+</html>

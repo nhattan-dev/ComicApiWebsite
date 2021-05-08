@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/Service.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="" style="background-color: black; padding: 10px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <a><img src="image/logo.png" class="logo-icon" style="width: 40%;"></a>
+                </div>
+                <div class="col-lg-4">
+                    <div class="d-flex">
+                        <a class="a-padding text-decoration-none"><span class="padding-10 span-color-white"
+                                style="color: blanchedalmond;">Tủ Truyện</span></a>
+                        <a class="a-padding text-decoration-none"><span class="padding-10 span-color-white"
+                                style="color: blanchedalmond;">Lịch Sử</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <input type="text" role="button" placeholder="Search..." style="width: 100%;"><a href=""><i
+                            class="fas fa-search" style="margin-left: -25px; color: black;"></i></a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex">
+                        <a class="a-padding text-decoration-none btn" role="button"><span class="span-color-white"
+                                onclick="checkCookie()"><i class="fas fa-sign-in-alt"></i> Đăng nhập</span></a>
+                        <a class="a-padding text-decoration-none btn" role="button"><span class="span-color-white"><i
+                                    class="fas fa-user"></i>Đăng Ký</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <br>
+        <div class="container">
+            <div class="row detail-container">
+                <div class="card-header">
+                    <i class="fab fa-gripfire fa-2x"></i>
+                    <span class="font-barlow-cond font-size-150">TRUYỆN HOT TRONG NGÀY</span>
+                </div>
+                <div class="detail-nav">
+
+                    <div>
+                        <div class="row d-flex justify-content-around" id="header-content">
+                            <!-- sdfsdfsd -->
+                            <!-- <div class="col-lg-auto slideshow-item">
+                                <div style="background-image: url('image/comic/bach-luyen-thanh-than.jpg');"
+                                    class="slideshow-image">
+                                    <div class="d-flex align-items-start flex-column bd-highlight mb-3"
+                                        style="height: 100%;">
+                                        <div class="mb-auto p-2 bd-highlight">
+                                            <span class="badge badge-primary span-color-black">7 giờ trước</span>
+                                        </div>
+                                        <div class="p-2 bd-highlight">
+                                            <a class="text-decoration-none font-size-130" href=""><span
+                                                    class="color-chapter span-color-white">Chap 123</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center"><a class="text-decoration-none" href=""><b class="font-size-115">Bách Luyện Thành
+                                    Thần</b></a></div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- <div class="detail-container"> -->
+            <div class="row detail-container">
+                <div class="col-lg-9 padding-0">
+                    <div class="detail-nav">
+                        <div class="card-header">
+                            <li class="fa fa-newspaper-o fa-2x"></li>
+                            <span class="font-barlow-cond font-size-130">TRUYỆN MỚI CẬP NHẬT</span>
+                        </div>
+                        <div class="row" style="margin: 0;" id="content">
+                            <!-- <div class="col-lg-3 chapter-item">
+                                    <div style="background-image: url('image/comic/bach-luyen-thanh-than.jpg');"
+                                        class="slideshow-image">
+                                        <div class="d-flex align-items-start flex-column bd-highlight mb-3"
+                                            style="height: 100%; padding-left: 18px;">
+                                            <div class="mb-auto p-2 bd-highlight">
+                                                <span class="badge badge-primary span-color-black">7 giờ trước</span>
+                                            </div>
+                                            <div class="p-2 bd-highlight">
+                                                <a class="text-decoration-none font-size-130" href=""><span
+                                                        class="color-chapter span-color-white">Chap 123</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center"><a class="text-decoration-none" href=""><b class="font-size-115">Bách Luyện Thành
+                                        Thần</b></a></div>
+                                </div> -->
+                        </div>
+                        <br>
+                        <div class="row padding-10 justify-content-center">
+                            <button id="viewMore" onclick="viewMore()" class="w-25 btn-outline-secondary">View
+                                more</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="padding: 0 0 0 10px;">
+                    <div class="detail-nav">
+                        <div class="topAll sidebar-topAll">
+                            <ul class="nav nav-tabs tabs-3 red d-flex justify-content-around" role="tablist">
+                                <li class="nav-item" role="tab" data-tog="tab"><a
+                                        class="font-barlow-cond text-decoration-none font-size-130"
+                                        href="#yesterday">TOP NGÀY</a>
+                                </li>
+                                <li class="nav-item" role="tab" data-tog="tab"><a
+                                        class="font-barlow-cond text-decoration-none font-size-130"
+                                        href="#lastmonth">TOP
+                                        THÁNG</a></li>
+                                <li class="nav-item" role="tab" data-tog="tab"><a
+                                        class="font-barlow-cond text-decoration-none font-size-130" href="#all">TOP
+                                        TỔNG</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="" id="yesterday">
+                                <div class="sidebar-content" id="sub-content">
+                                    <!-- <div class="row top-item">
+                                            <div class="col-lg-4">
+                                                <a href=""><img style="width: 100%;" src="image/comic/bach-luyen-thanh-than.jpg"></a>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <a href="" class="text-decoration-none"><b>Bách Luyện Thành Thần</b></a>
+                                                <br><a href="" class="text-decoration-none color-chapter">Chap 717</a>
+                                                <br><span>1 ngày trước</span>
+                                                <br><a href="" class="text-decoration-none color-chapter">Chap 717</a>
+                                                <br><span>1 ngày trước</span>
+                                            </div>
+                                        </div> -->
+                                </div>
+                            </div>
+                            <div class="" id="lastmonth">
+                            </div>
+                            <div class="" id="all">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+            <br>
+        </div>
+    </main>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a40ffc4b73.js" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $.get(baseApiUrl + 'homeapi?key=0', function (data) {
+                var count = 0;
+                data.forEach(function (item) {
+                    count++;
+                    if (count <= 12)
+                        try {
+                            $('#content').append(`<div class="col-lg-3 chapter-item"><div style="background-image: url('https://drive.google.com/uc?id=` + item.image + `');" class="slideshow-image"><div class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 100%; padding-left: 18px;"><div class="mb-auto p-2 bd-highlight"><span class="badge badge-primary span-color-black">7 giờ trước</span></div><div class="p-2 bd-highlight"><a class="text-decoration-none font-size-130" href="` + baseUrl +`chapter-detail.html?chapter_id=` + item.chapters[0].chapter_id + `"><span class="color-chapter span-color-white">Chap ` + item.chapters[0].name + `</span></a></div></div></div><div class="d-flex justify-content-center"><a class="text-decoration-none" href="` + baseUrl +`detail.html?comic_id=` + item.comic_id + `"><b class="font-size-115">` + item.name + `</b></a></div></div>`);
+                        } catch (error) { }
+                })
+            })
+            $.get(baseApiUrl + 'homeapi?key=1', function (data) {
+                var count = 0;
+                data.forEach(function (item) {
+                    count++;
+                    if (count <= 5)
+                        try {
+                            $('#sub-content').append('<div class="row top-item"> <div class="col-lg-4"> <a href="' + baseUrl +'detail.html?comic_id=' + item.comic_id + '"><img style="width: 100%;" src="https://drive.google.com/uc?id=' + item.image + '"></a> </div> <div class="col-lg-8"> <a href="' + baseUrl +'detail.html?comic_id=' + item.comic_id + '" class="text-decoration-none"><b>' + item.name + '</b></a> <br><a href="chapter-detail.html?chapter_id=' + item.chapters[0].chapter_id + '" class="text-decoration-none color-chapter">Chap ' + item.chapters[0].name + '</a> <br><span>1 ngày trước</span> <br><a href="' + baseUrl +'chapter-detail.html?chapter_id=' + item.chapters[1].chapter_id + '" class="text-decoration-none color-chapter">Chap ' + item.chapters[1].name + '</a> <br><span>1 ngày trước</span> </div> </div>');
+                        } catch (error) { }
+                })
+            })
+            $.get(baseApiUrl + 'homeapi?key=2', function (data) {
+                var count = 0;
+                data.forEach(function (item) {
+                    count++;
+                    if (count <= 6)
+                        try {
+                            $('#header-content').append(`<div class="col-lg-2 slideshow-item"><div style="background-image: url('https://drive.google.com/uc?id=` + item.image + `');" class="slideshow-image"><div class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 100%;"><div class="mb-auto p-2 bd-highlight"><span class="badge badge-primary span-color-black">7 giờ trước</span></div><div class="p-2 bd-highlight"><a class="text-decoration-none font-size-130" href="` + baseUrl + `chapter-detail.html?chapter_id=` + item.chapters[0].chapter_id + `"><span class="color-chapter span-color-white">Chap ` + item.chapters[0].name + `</span></a></div></div></div><div class="d-flex justify-content-center"><a class="text-decoration-none" href="` + baseUrl + `detail.html?comic_id=` + item.comic_id + `"><b class="font-size-115">` + item.name + `</b></a></div></div>`);
+                        } catch (error) {
+                            // alert(error);
+                        }
+                })
+            })
+        })
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkLogin(username, password) {
+            if (username && password) {
+            } else {
+                alert('Tài khoản hoặc mật khẩu không hợp lệ!');
+                return;
+            }
+            $.get(baseApiUrl + 'userapi?username=' + username + '&password=' + password, function (data) {
+                if (data == 0 || data == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        }
+
+        function checkCookie() {
+            var user = getCookie("comicusername");
+            var pass = getCookie("comicpassword");
+            if (user && pass) {
+                $.get(baseApiUrl + 'userapi?username=' + user + '&password=' + pass, function (data) {
+                    if (data == 0 || data == 1) {
+                        window.location.href = baseUrl + "genre-create.html";
+                    } else {
+                        window.location.href = baseUrl + "login.html";
+                    }
+                });
+            }
+            window.location.href = baseUrl + "login.html";
+        }
+
+        function viewMore() {
+            $('#viewMore').attr("disabled", true);
+            var begin = 0;
+            begin = $('#content').children().length;
+            $.get(baseApiUrl + 'homeapi?key=0&begin=' + (begin + 1) + "&end=" + (begin + 1 + 12), function (data) {
+                data.forEach(function (item) {
+                    try {
+                        $('#content').append(`<div class="col-lg-3 chapter-item"><div style="background-image: url('https://drive.google.com/uc?id=` + item.image + `');" class="slideshow-image"><div class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 100%; padding-left: 18px;"><div class="mb-auto p-2 bd-highlight"><span class="badge badge-primary span-color-black">7 giờ trước</span></div><div class="p-2 bd-highlight"><a class="text-decoration-none font-size-130" href="chapter-detail.html?chapter_id=` + item.chapters[0].chapter_id + `"><span class="color-chapter span-color-white">Chap ` + item.chapters[0].name + `</span></a></div></div></div><div class="d-flex justify-content-center"><a class="text-decoration-none" href="` + baseUrl + `detail.html?comic_id=` + item.comic_id + `"><b class="font-size-115">` + item.name + `</b></a></div></div>`);
+                    } catch (error) { }
+                })
+
+                $('#viewMore').attr("disabled", false);
+            })
+        }
+    </script>
+</body>
+
+</html>
